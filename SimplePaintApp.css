@@ -1,0 +1,784 @@
+@import url('https://fonts.googleapis.com/css?family=Mukta');
+
+ :root {}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Disco revival' , sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background:#131313;
+  padding: 30px; 
+  font-family: "Mukta";
+  overflow:hidden;
+}
+
+
+canvas {
+  box-shadow: -3px 2px 9px 6px #000000;
+  overflow: hidden;
+  cursor: crosshair;
+  /*must have the same padding as body or the canvas won't draw correctly*/
+}
+
+.tools {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 15px;
+}
+
+.tools .color-field {
+  height: 40px;
+  width: 40px;
+  min-height: 40px;
+  min-width: 40px;
+  cursor: pointer;
+  display: inline-block;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  align-self: center;
+  margin: 0 10px;
+}
+
+.tools .button{
+  align-self: center;
+  width: 100px;
+  height: 40px;
+  border: 2px solid #ffffff;
+  cursor: pointer;
+  color: #ffffff;
+  background: #222;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+.color-picker {
+  align-self: center;
+  margin: 0 10px;
+  height: 50px;
+}
+
+.pen-range {
+  align-self: center;
+  margin: 0 10px;
+}
+
+
+
+
+/*nav bar css*/
+
+.highlight {
+border-bottom: 4px solid #00ffff;
+}
+
+.navbar {
+  background: linear-gradient(to right, #131313 80%, #00008b 100%);
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.navbar__container {
+  display: flex;
+  justify-content: space-between;
+  height: fit-content;
+  z-index: 1;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+#navbar__logo{
+  background-color:#00ffff;
+  background-image: linear-gradient(to top, #00ffff 30%, #0000ff 100%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;    
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.navbar__item {
+  height: 80%;
+}
+
+.navbar__links {
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 125px;
+  text-decoration: none;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.navbar__btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  width: 135px;
+  cursor: pointer;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-decoration: none;
+  padding: 10px 20px;
+  height: 100%;
+  border: 0.2px solid #ffffff;
+  outline: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+/* old signup button
+#signup {
+width: 125px;
+}  */
+
+.navbar__links:hover {
+  color: #00ffff;
+  transition: all 0.3s ease; /* Place this inside navbar_links too, this allows a clean transition when the mouse hovers over text */
+}
+
+.button:hover {
+  position: relative;
+  border-color: #00ffff;
+  z-index: 2;
+  color: #00ffff;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+
+@media screen and (max-width: 960px) {
+  .navbar__container{
+      display: flex;
+      justify-content: space-between;
+      height: 80px;
+      z-index: 1;
+      width: 100;
+      max-width: 1300px;
+      padding: 0;
+  }
+
+  .navbar__menu{
+      display: grid;
+      grid-template-columns: auto;
+      margin: 0;
+      width: 100%;
+      position: absolute;
+      top: -1000px;
+      opacity: 1;
+      transition: all 0.5s ease;
+      z-index: -1;
+  }
+
+  .navbar__menu.active {
+      background: #131313;
+      top: 100%;
+      opacity: 1;
+      transition: all 0.5s ease;
+      z-index: 99;
+      height: 60vh;
+      font-size: 1.6rem;
+      overflow: auto;
+  
+  }
+
+  #navbar__logo {
+      padding-left: 25px;
+  }
+
+  .navbar__toggle .bar {
+      width: 25px;
+      height: 3px;
+      margin: 5px auto;
+      transition: all 0.3s ease-in-out;
+      background: #ffffff;
+  }
+
+  .navbar__item {
+      width: 100%;
+  }
+
+  .navbar__links {
+      text-align: center;
+      padding: 2rem;
+      width: 100%;
+      display: table;
+  }
+
+  .navbar__btn {
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+  }
+
+  .button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80%;
+      height: 80px;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    #mobile-menu {
+      position: absolute;
+      top: 20%;
+      right: 5%;
+      transform: translate(5%, 20%);
+    }
+  
+    .navbar__toggle .bar {  /* will transition to a Hamburger Menu when on a smaller screen*/
+      display: block;
+      cursor: pointer;
+    }
+
+    /*Needs Js to make these transitions work, I'm using Js to trigger these */
+
+    #mobile-menu.is-active .bar:nth-child(2) { /*targets middle hambuger line to make it disappear when you click on it*/
+      opacity: 0;
+    }
+  
+    #mobile-menu.is-active .bar:nth-child(1) { /*targets first hambuger line to make it turn at a 45 degree angle when you click on it*/
+      transform: translateY(8px) rotate(45deg);
+    }
+  
+    #mobile-menu.is-active .bar:nth-child(3) { /*targets third hambuger line to make it turn at -45 degree angle when you click on it*/
+      transform: translateY(-8px) rotate(-45deg);
+    }
+    /*******************************************************/
+}
+
+
+/* The login (background) */
+.login , .signup {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+  cursor: auto;
+}
+
+/* login Content/Box */
+.login__content { 
+  background-color: #131313;
+  margin: 170px auto; /* 15% from the top and centered */
+  border-radius: 25px;
+  padding: 20px;
+  width: 400px;
+  height: 390px;
+}
+
+.login__content h1 , .signup__content h1 {
+  margin-bottom: 1rem;
+  background-color: rgba(255, 255, 255, 0.705);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.login__content hr , .signup__content hr {
+  margin-bottom: 1.5rem;
+  color:rgba(255, 255, 255, 0.705);
+}
+
+.imgcontainer { /*For login ,Signup, logout, save*/
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+.login__container, .signup__container {
+  font-size: 1.5rem;
+  background: #131313;
+  display: grid;
+  align-items: center;
+}
+
+.login__container input[type=email], input[type=password] {
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  padding: 12px 15px;
+  border-color: rgba(255, 255, 255, 0.705);
+  background: rgba(255, 255, 255, 0.705);
+  outline: none; 
+  height: 3rem;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  font-size: 1.3rem;
+}
+
+
+.login__container input:focus {
+  border: 1px solid rgba(81,203,238,1);
+  caret-color: rgba(255, 255, 255, 0.705);
+  /*background: rgba(255, 255, 255, 0.3);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;  Changes placeholder color on focus, was trying
+  to figure out how to change it back while typing, I'll come back to this*/
+}
+
+
+.login__remember {  /*remember me check box */
+  display: inline-table;
+  padding-right: 14px;
+  color: rgba(255, 255, 255, 0.705);
+  font-size: 1rem;
+  display: inline-block;
+  margin-bottom: 0.8rem;
+}
+
+.login__container button {
+  border-radius: 10px;
+  size: 4rem;
+  height: 3rem;
+  background: #131313;
+  background: linear-gradient(to right, #131313 80%, darkblue 100%);
+  border-color:rgba(255, 255, 255, 0.705);
+  color: white; /*Use color for font color inside a button*/
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.login__container button:hover {
+  opacity: 0.8;
+}
+
+.login__container hr {
+  margin-top: 1rem;
+}
+
+/*a:hover MUST come after a:link and a:visited in the CSS definition in order to be effective.*/
+/*a:active MUST come after a:hover in the CSS definition in order to be effective.*/
+.login__container a:link {
+  text-decoration: none;
+  color:rgba(255, 255, 255, 0.705);
+  font-size: 1rem;
+  font-weight: normal;
+  display: flex;
+  justify-content: center;
+}
+
+/*Can't figure out how to get visited links to work, will come back to this in the future*/
+.login__container a:visited { 
+  text-decoration: none;
+  color:#800080;
+}
+
+.login__container a:hover {
+  text-decoration: underline;
+}
+
+.login__container a:active {
+  text-decoration: underline;
+}
+
+
+#submit:hover {
+  cursor: pointer;
+}
+
+/* The Close Button */
+.close {
+  /* Position it in the top right corner outside of the login */
+  position: absolute;
+  right: 25px;
+  top: -60px;
+  color: rgba(255, 255, 255, 0.705);
+  font-size: 35px;
+  font-weight: bold;
+}
+
+/* Close button on hover */
+.close:hover,
+.close:focus {
+  color: #ff0000;
+  cursor: pointer;
+}
+
+.cancelbtn {
+  cursor: pointer;
+}
+
+/* Add Zoom Animation for login and sign up*/
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)}
+  to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+  from {transform: scale(0)}
+  to {transform: scale(1)}
+}
+
+
+/* The Sign Up (background) */
+.signup__content {
+background-color: #131313;
+margin: 170px auto; /* 15% from the top and centered */
+border-radius: 25px;
+padding: 20px;
+width: 450px;
+height: 430px;
+}
+
+.signup__container input[type=text], input[type=email], input[type=password] {
+display: grid;
+grid-template-columns: 2;
+grid-template-rows: 2;
+margin-bottom: 1rem;
+border-radius: 10px;
+padding: 12px 15px;
+border-color: rgba(255, 255, 255, 0.705);
+background: rgba(255, 255, 255, 0.705);
+outline: none; 
+height: 3rem;
+-webkit-background-clip: text;
+-moz-background-clip: text;
+-webkit-text-fill-color: transparent;
+-moz-text-fill-color: transparent;
+font-size: 1.3rem;
+}
+
+.signup__container input:focus {
+border: 1px solid rgba(81,203,238,1);
+caret-color: rgba(255, 255, 255, 0.705);
+/*background: rgba(255, 255, 255, 0.3);
+-webkit-background-clip: text;
+-moz-background-clip: text;
+-webkit-text-fill-color: transparent;
+-moz-text-fill-color: transparent;  Changes placeholder color on focus, was trying
+to figure out how to change it back while typing, I'll come back to this*/
+}
+
+[required] {
+color: #ff0000;
+}
+
+/*$(document).ready(function () {  java for required
+setTimeout(function () {
+    $("input").val("");
+}, 3000);
+});
+*/
+
+.signup__container label {
+color:rgba(255, 255, 255, 0.705);
+font-size: 1rem;
+}
+
+/*
+.signup__container select {
+margin-bottom: 1rem;
+border-radius: 5px;
+height: 1.8rem;
+width: 32%;
+border-color: rgba(255, 255, 255, 0.705);
+background: #131313;
+color:rgba(255, 255, 255, 0.705);
+}  
+
+.others { /*font color for select list attributes 
+color:rgba(255, 255, 255, 0.705);
+} 
+this was going to be a birthdate selection for Signup */
+
+.signup__container button{
+border-radius: 10px;
+size: 4rem;
+height: 3rem;
+background: #131313;
+background: linear-gradient(to right, #131313 80%, #00008b 100%);
+border-color:rgba(255, 255, 255, 0.705);
+color: #ffffff; /*Use color for font color inside a button*/
+font-size: 1.3rem;
+font-weight: bold;
+}
+
+.signup__container button:hover {
+opacity: 0.8;
+}
+
+
+
+
+/* The logout (background) */
+.logout {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+  cursor: auto;
+}
+
+/* logout Content/Box */
+.logout__content { 
+  background-color: #131313;
+  margin: 170px auto; /* 15% from the top and centered */
+  border-radius: 25px;
+  padding: 20px;
+  width: 400px;
+  height: 200px;
+}
+
+.logout__content h1 {
+  margin-bottom: 1rem;
+  background-color: rgba(255, 255, 255, 0.705);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.logout__content hr {
+  margin-bottom: 1.5rem;
+  color:rgba(255, 255, 255, 0.705);
+}
+
+
+.logout__container {
+  font-size: 1.5rem;
+  background: #131313;
+  display: grid;
+  align-items: center;
+}
+
+.logout__container button {
+  border-radius: 10px;
+  size: 4rem;
+  height: 3rem;
+  background: #131313;
+  background: linear-gradient(to right, #131313 80%, #00008b 100%);
+  border-color:rgba(255, 255, 255, 0.705);
+  color: #ffffff; /*Use color for font color inside a button*/
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.logout__container a {
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 2em; /*increases the link click radius*/
+  margin: -2em; /*increases the link click radius*/
+}
+
+.logout__container button:hover {
+  opacity: 0.8;
+}
+
+.logout__container hr {
+  margin-top: 1rem;
+}
+
+/*a:hover MUST come after a:link and a:visited in the CSS definition in order to be effective.*/
+/*a:active MUST come after a:hover in the CSS definition in order to be effective.*/
+.logout__container a {
+  text-decoration: none;
+  color:rgba(255, 255, 255, 0.705);
+  font-size: 1rem;
+  font-weight: normal;
+  display: flex;
+  justify-content: center;
+  padding: 2em; /*increases the link click radius*/
+  margin: -2em; /*increases the link click radius*/
+}
+
+
+/* The save (background) */
+.save {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+  cursor: auto;
+}
+
+/* save Content/Box */
+.save__content { 
+  background-color: #131313;
+  margin: 170px auto; /* 15% from the top and centered */
+  border-radius: 25px;
+  padding: 20px;
+  width: 400px;
+  height: 250px;
+}
+
+.save__content h1 {
+  margin-bottom: 1rem;
+  background-color: rgba(255, 255, 255, 0.705);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.save__content hr {
+  margin-bottom: 1.5rem;
+  color:rgba(255, 255, 255, 0.705);
+}
+
+
+.save__container {
+  font-size: 1.5rem;
+  background: #131313;
+  display: grid;
+  align-items: center;
+}
+
+.save__container input[type=text] {
+  display: grid;
+  grid-template-columns: 2;
+  grid-template-rows: 2;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  padding: 12px 15px;
+  border-color: rgba(255, 255, 255, 0.705);
+  background: rgba(255, 255, 255, 0.705);
+  outline: none; 
+  height: 3rem;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  font-size: 1.3rem;
+  }
+
+.save__container button {
+  border-radius: 10px;
+  size: 4rem;
+  height: 3rem;
+  background: #131313;
+  background: linear-gradient(to right, #131313 80%, #00008b 100%);
+  border-color:rgba(255, 255, 255, 0.705);
+  color: #ffffff; /*Use color for font color inside a button*/
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+
+
+/*save size for save content */
+@media screen and (max-width: 420px){
+  .save__content{
+    width: 250px;
+  }
+
+  .save__container input[type=text]{
+    width: 100%;
+  }
+
+  .save__container button {
+    width: 100%;
+  }
+}
+
+
+/*media size for logout content */
+@media screen and (max-width: 420px){
+  .logout__content{
+    width: 250px;
+  }
+
+  .logout__container button {
+    width: 100%;
+  }
+}
+
+/*canvas*/
+@media screen and (max-width: 808px) {
+  #canvas{
+    width: 100%;
+    max-width: 748px;
+  }
+}
+
+
+/*media size for canvas*/
+@media screen and (max-width: 590px) {
+  #canvas{
+      width: 100%;
+      max-width: 530px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  #canvas{
+    max-width: 260px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .tools {
+    display: grid;
+    margin: 10px;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+ 

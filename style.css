@@ -1,0 +1,1003 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Disco revival' , sans-serif;
+    scroll-behavior: smooth;
+}
+
+.highlight {
+  border-bottom: 4px solid #00ffff;
+}
+
+.navbar {
+    background: linear-gradient(to right, #131313 80%, #00008b 100%);
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.navbar__container {
+    display: flex;
+    justify-content: space-between;
+    height: fit-content;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+
+#navbar__logo{
+    background-color:#00ffff;
+    background-image: linear-gradient(to top, #00ffff 30%, #0000ff 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;    
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+.navbar__menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.navbar__item {
+    height: 80%;
+}
+
+.navbar__links {
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 125px;
+    text-decoration: none;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.navbar__btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    width: 135px;
+    cursor: pointer;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-decoration: none;
+    padding: 10px 20px;
+    height: 100%;
+    border: 0.2px solid #ffffff;
+    outline: none;
+    border-radius: 4px;
+    background: transparent;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+/* old signup button
+#signup {
+  width: 125px;
+}  */
+
+.navbar__links:hover {
+    color: #00ffff;
+    transition: all 0.3s ease; /* Place this inside navbar_links too, this allows a clean transition when the mouse hovers over text */
+  }
+
+.button:hover {
+    position: relative;
+    border-color: #00ffff;
+    z-index: 2;
+    color: #00ffff;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+
+@media screen and (max-width: 960px) {
+    .navbar__container{
+        display: flex;
+        justify-content: space-between;
+        height: 80px;
+        z-index: 1;
+        width: 100;
+        max-width: 1300px;
+        padding: 0;
+    }
+
+    .navbar__menu{
+        display: grid;
+        grid-template-columns: auto;
+        margin: 0;
+        width: 100%;
+        position: absolute;
+        top: -1000px;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: -1;
+    }
+
+    .navbar__menu.active {
+        background: #131313;
+        top: 100%;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 99;
+        height: 60vh;
+        font-size: 1.6rem;
+        overflow: auto;
+    
+    }
+
+    #navbar__logo {
+        padding-left: 25px;
+    }
+
+    .navbar__toggle .bar {
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+        background: #ffffff;
+    }
+
+    .navbar__item {
+        width: 100%;
+    }
+
+    .navbar__links {
+        text-align: center;
+        padding: 2rem;
+        width: 100%;
+        display: table;
+    }
+
+    .navbar__btn {
+      width: 100%;
+      margin: 0 auto;
+      padding-bottom: 2rem;
+    }
+
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        height: 80px;
+        margin: 0;
+        cursor: pointer;
+      }
+  
+      #mobile-menu {
+        position: absolute;
+        top: 20%;
+        right: 5%;
+        transform: translate(5%, 20%);
+      }
+    
+      .navbar__toggle .bar {  /* will transition to a Hamburger Menu when on a smaller screen*/
+        display: block;
+        cursor: pointer;
+      }
+  
+      /*Needs Js to make these transitions work, I'm using Js to trigger these */
+  
+      #mobile-menu.is-active .bar:nth-child(2) { /*targets middle hambuger line to make it disappear when you click on it*/
+        opacity: 0;
+      }
+    
+      #mobile-menu.is-active .bar:nth-child(1) { /*targets first hambuger line to make it turn at a 45 degree angle when you click on it*/
+        transform: translateY(8px) rotate(45deg);
+      }
+    
+      #mobile-menu.is-active .bar:nth-child(3) { /*targets third hambuger line to make it turn at -45 degree angle when you click on it*/
+        transform: translateY(-8px) rotate(-45deg);
+      }
+      /*******************************************************/
+}
+
+
+/* The login (background) */
+.login , .signup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+    cursor: auto;
+  }
+  
+  /* login Content/Box */
+  .login__content { 
+    background-color: #131313;
+    margin: 170px auto; /* 15% from the top and centered */
+    border-radius: 25px;
+    padding: 20px;
+    width: 400px;
+    height: 390px;
+  }
+
+  .login__content h1 , .signup__content h1 {
+    margin-bottom: 1rem;
+    background-color: rgba(255, 255, 255, 0.705);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+  }
+
+  .login__content hr , .signup__content hr {
+    margin-bottom: 1.5rem;
+    color:rgba(255, 255, 255, 0.705);
+  }
+
+  .imgcontainer { /*For login, Signup and logout*/
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+  }
+
+  .login__container, .signup__container {
+    font-size: 1.5rem;
+    background: #131313;
+    display: grid;
+    align-items: center;
+  }
+
+  .login__container input[type=email], input[type=password] {
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    padding: 12px 15px;
+    border-color: rgba(255, 255, 255, 0.705);
+    background: rgba(255, 255, 255, 0.705);
+    outline: none; 
+    height: 3rem;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    font-size: 1.3rem;
+  }
+
+
+  .login__container input:focus {
+    border: 1px solid rgba(81,203,238,1);
+    caret-color: rgba(255, 255, 255, 0.705);
+    /*background: rgba(255, 255, 255, 0.3);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;  Changes placeholder color on focus, was trying
+    to figure out how to change it back while typing, I'll come back to this*/
+  }
+
+  
+  .login__remember {  /*remember me check box */
+    display: inline-table;
+    padding-right: 14px;
+    color: rgba(255, 255, 255, 0.705);
+    font-size: 1rem;
+    display: inline-block;
+    margin-bottom: 0.8rem;
+  }
+
+  .login__container button {
+    border-radius: 10px;
+    size: 4rem;
+    height: 3rem;
+    background: #131313;
+    background: linear-gradient(to right, #131313 80%, #00008b 100%);
+    border-color:rgba(255, 255, 255, 0.705);
+    color: #ffffff; /*Use color for font color inside a button*/
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+
+  .login__container button:hover {
+    opacity: 0.8;
+  }
+
+  .login__container hr {
+    margin-top: 1rem;
+  }
+
+/*a:hover MUST come after a:link and a:visited in the CSS definition in order to be effective.*/
+/*a:active MUST come after a:hover in the CSS definition in order to be effective.*/
+  .login__container a:link {
+    text-decoration: none;
+    color:rgba(255, 255, 255, 0.705);
+    font-size: 1rem;
+    font-weight: normal;
+    display: flex;
+    justify-content: center;
+  }
+
+  /*Can't figure out how to get visited links to work, will come back to this in the future*/
+  .login__container a:visited { 
+    text-decoration: none;
+    color:#800080;
+  }
+  
+  .login__container a:hover {
+    text-decoration: underline;
+  }
+  
+  .login__container a:active {
+    text-decoration: underline;
+  }
+
+
+  #submit:hover {
+    cursor: pointer;
+  }
+
+  /* The Close Button */
+  .close {
+    /* Position it in the top right corner outside of the login */
+    position: absolute;
+    right: 25px;
+    top: -60px;
+    color: rgba(255, 255, 255, 0.705);
+    font-size: 35px;
+    font-weight: bold;
+  }
+  
+  /* Close button on hover */
+  .close:hover,
+  .close:focus {
+    color: #ff0000;
+    cursor: pointer;
+  }
+
+  .cancelbtn {
+    cursor: pointer;
+  }
+  
+  /* Add Zoom Animation for login and sign up*/
+  .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+  }
+  
+  @-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)}
+    to {-webkit-transform: scale(1)}
+  }
+  
+  @keyframes animatezoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+  }
+
+
+/* The Sign Up (background) */
+.signup__content {
+  background-color: #131313;
+  margin: 170px auto; /* 15% from the top and centered */
+  border-radius: 25px;
+  padding: 20px;
+  width: 450px;
+  height: 500px;
+}
+
+.signup__container input[type=text], input[type=email], input[type=password] {
+  display: grid;
+  grid-template-columns: 2;
+  grid-template-rows: 2;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  padding: 12px 15px;
+  border-color: rgba(255, 255, 255, 0.705);
+  background: rgba(255, 255, 255, 0.705);
+  outline: none; 
+  height: 3rem;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  font-size: 1.3rem;
+}
+
+.signup__container input:focus {
+  border: 1px solid rgba(81,203,238,1);
+  caret-color: rgba(255, 255, 255, 0.705);
+  /*background: rgba(255, 255, 255, 0.3);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;  Changes placeholder color on focus, was trying
+  to figure out how to change it back while typing, I'll come back to this*/
+}
+
+[required] {
+  color: #ff0000;
+}
+
+/*$(document).ready(function () {  java for required
+  setTimeout(function () {
+      $("input").val("");
+  }, 3000);
+});
+*/
+
+.signup__container label {
+  color:rgba(255, 255, 255, 0.705);
+  font-size: 1rem;
+}
+
+/*
+.signup__container select {
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  height: 1.8rem;
+  width: 32%;
+  border-color: rgba(255, 255, 255, 0.705);
+  background: #131313;
+  color:rgba(255, 255, 255, 0.705);
+}  
+
+.others { /*font color for select list attributes 
+  color:rgba(255, 255, 255, 0.705);
+} 
+  this was going to be a birthdate selection for Signup */
+
+.signup__container button{
+  border-radius: 10px;
+  size: 4rem;
+  height: 3rem;
+  background: #131313;
+  background: linear-gradient(to right, #131313 80%, #00008b 100%);
+  border-color:rgba(255, 255, 255, 0.705);
+  color: #ffffff; /*Use color for font color inside a button*/
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.signup__container button:hover {
+  opacity: 0.8;
+}
+
+
+
+/*media size for login content and sign up content*/
+@media screen and (max-width: 480px){
+  .login__content{
+    width: 250px;
+  }
+
+  .login__container button {
+    width: auto;
+  }
+
+
+  .login__container input[type=email], input[type=password] {
+   
+   width: 100%;
+  }
+
+  .signup__content{
+    width: 250px;
+  }
+
+  .signup__container input[type=text], input[type=email], input[type=password] {
+    width: 100%;
+  }
+
+
+  .signup__container button{
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+/*Create Section*/
+.create {
+    background: #f5f5f5;
+    padding: 250px 0;
+}
+
+.create__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 90%;
+    text-align: center;
+    padding: 30px;
+}
+
+.create__btn {
+    font-size: 1.8rem;
+    background: #ffffff;
+    background: -webkit-linear-gradient(to right, #000000, #00008b);
+    background: linear-gradient(to right, #000000, #00008b);
+    padding: 20px 60px;
+    border: none;
+    border-radius: 4px;
+    margin-top: 2rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.35s;
+    outline: none;
+}
+
+
+.create__btn a {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 2em; /*increases the link click radius*/
+    margin: -2em; /*increases the link click radius*/
+}
+
+.create__btn:after { /*Button color after hovering over it */
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #131313;
+    transition: all 0.35s;
+    border-radius: 4px;
+}
+
+.create__btn:hover a{
+    position: relative;
+    z-index: 2;
+    color: #00ffff;
+    text-decoration: none;
+    transition: 0.35s;
+}
+
+.create__btn:hover:after {
+    width: 100%;
+}
+
+/*Mobile Response for Create Section*/
+@media screen and (max-width: 480px) {
+    .create__btn {
+        padding: 12px 36px;
+        margin: 2.5rem 0;
+    }
+}
+
+/*About Section*/
+
+.about {
+    background: #131313;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 10rem 0 0 0; 
+}
+
+.about h1 {
+    background-color: #ffffff;
+    background-image: linear-gradient(to right, #ffffff, #f5f5f5 100%);  
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+.about__content h2 {
+    background: #0000ff; /*fallback for old browsers*/
+    background: linear-gradient(to right,#0000ff 0%, #00ffff 100%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: -webkit-linear-gradient(to right,#0000ff 0%, #00ffff 100%); /* Chrome 10-25, Safari 5.1-6 */
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    text-transform: uppercase;
+    font-size: 4rem;
+    margin-bottom: 32px;
+}
+
+.about__content p {
+    background-color:#ffffff; 
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    text-decoration: none;
+    margin-bottom: 5rem;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.about__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    height: 90%;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 50px;
+}
+
+.about__img--container {
+    text-align: center;
+}
+
+.about_img--card {
+    
+    height: 500px;
+    width: 500px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #ffffff;
+    background-image: linear-gradient( to right, #00ffff 0%, #0000ff 100%);
+    margin-bottom: 55px;
+}
+
+.fa-layer-group {
+  font-size: 14rem;
+}
+
+
+/* Mobile Response for About Section */
+@media screen and (max-width: 1100px) {
+    .about__container {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 90%;
+        margin: 0 auto;
+    }
+
+    .about__img--container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .about_img--card {
+        height: 425px;
+        width: 425px;
+    }
+
+    .about__content {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .about__content h2 {
+        font-size: 3rem;
+    }
+
+    .about__content p {
+        margin-top: 1rem;
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .about_img--card {
+        height: 250px;
+        width: 250px;
+    }
+
+    .about__content h2 {
+        font-size: 1.7rem;
+    }
+
+    .about__content p {
+        margin-top: 1.7rem;
+    }
+
+    .fa-layer-group {
+      font-size: 4rem;
+    }
+}
+
+/*Community Section*/
+
+.community {
+    background: #131313;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 10rem 0;
+}
+
+.community h1 {
+    background: #ffffff;
+    background-image: linear-gradient(to right, #ffffff 0%, #f5f5f5 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color:transparent;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+
+/**Not sure why the icon won't appear in from of the search bar, come back to this*/
+.action input[type=text] {  /*Search bar*/
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 4px;
+    float: right;
+    padding: 12px 20px 12px 40px;
+    border: 2px solid #ccc;
+    font-size: 1px solid #ccc;
+    margin-bottom: 2rem;
+    background-color: #131313;
+    background-image: url('whiteSearchIcon.png');
+    background-size: 15px 15px ; /*Size of the picture*/
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    caret-color: #ccc;
+    color:#ccc;
+
+}
+
+#button [type=submit] {
+    cursor: pointer;
+}
+
+.community__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; /*Come back to check on this */
+    grid-template-rows: 1fr;
+}
+
+.community__card {
+    margin: 10px;
+    height: 425px;
+    width: 300px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    background-image: linear-gradient(to right, #00ffff 0%, #0000ff 100%);
+    transition: 0.3s ease-in;
+}
+
+ .fa-users {
+  font-size: 10rem;
+}
+
+.community__card:hover {
+    transform: scale(1.075);
+    transition: 0.3s ease-in;
+    cursor: pointer;
+}
+
+/*Media for Community Section*/
+@media screen and (max-width: 1300px) {
+    .community__wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .community__wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* The logout (background) */
+.logout {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+  cursor: auto;
+}
+
+/* logout Content/Box */
+.logout__content { 
+  background-color: #131313;
+  margin: 170px auto; /* 15% from the top and centered */
+  border-radius: 25px;
+  padding: 20px;
+  width: 400px;
+  height: 200px;
+}
+
+.logout__content h1 {
+  margin-bottom: 1rem;
+  background-color: rgba(255, 255, 255, 0.705);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.logout__content hr {
+  margin-bottom: 1.5rem;
+  color:rgba(255, 255, 255, 0.705);
+}
+
+
+.logout__container {
+  font-size: 1.5rem;
+  background: #131313;
+  display: grid;
+  align-items: center;
+}
+
+.logout__container button {
+  border-radius: 10px;
+  size: 4rem;
+  height: 3rem;
+  background: #131313;
+  background: linear-gradient(to right, #131313 80%, #00008b 100%);
+  border-color:rgba(255, 255, 255, 0.705);
+  color: #ffffff; /*Use color for font color inside a button*/
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.logout__container a {
+  text-decoration: none;
+  color:rgba(255, 255, 255, 0.705);
+  font-size: 1rem;
+  font-weight: normal;
+  display: flex;
+  justify-content: center;
+  padding: 2em; /*increases the link click radius*/
+  margin: -2em; /*increases the link click radius*/
+}
+
+
+.logout__container button:hover {
+  opacity: 0.8;
+}
+
+.logout__container hr {
+  margin-top: 1rem;
+}
+
+/*media size for logout content */
+@media screen and (max-width: 420px){
+  .logout__content{
+    width: 250px;
+  }
+
+  .logout__container button {
+    width: 100%;
+  }
+}
+
+/*a:hover MUST come after a:link and a:visited in the CSS definition in order to be effective.*/
+/*a:active MUST come after a:hover in the CSS definition in order to be effective.*/
+/*.logout__container a:link {
+  text-decoration: none;
+  color:rgba(255, 255, 255, 0.705);
+  font-size: 1rem;
+  font-weight: normal;
+  display: flex;
+  justify-content: center;
+}*/
+
+ 
+
+/*Error Section*/
+.error {
+  background: #131313;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 10rem 0 0 0; 
+}
+
+.error h1 {
+  background-color: #ffffff;
+  background-image: linear-gradient(to right, #ffffff, #f5f5f5 100%);  
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  text-transform: uppercase;
+  font-size: 3.5rem;
+  margin-bottom: 4rem;
+}
+
+.error h2 {
+  background-color: #ffffff;
+  background-image: linear-gradient(to right, #ffffff, #f5f5f5 100%);  
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+@media screen and (max-width: 768px) {
+  .error h1{
+    font-size: 1.2rem;
+  }
+
+  .error h2{
+    font-size: 1rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
