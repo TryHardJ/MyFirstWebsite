@@ -14,9 +14,8 @@ body {
   background:#131313;
   padding: 30px; 
   font-family: "Mukta";
-  overflow:hidden;
+  overflow: scroll; 
 }
-
 
 canvas {
   box-shadow: -3px 2px 9px 6px #000000;
