@@ -9,7 +9,7 @@ check_login();
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Paint application" />
         <title>Flow</title>
         <link rel="stylesheet" href="style.css" />
 
@@ -27,7 +27,7 @@ check_login();
         <nav class="navbar">
             <div class="navbar__container">
 
-                <a href="#create" id="navbar__logo">FLOW</a>
+                <a href="#create" class="navbar__logo">FLOW</a>
                 <div class="navbar__toggle" id="mobile-menu">
                     <!--Hamburger-->
                     <span class="bar"></span>
@@ -51,7 +51,6 @@ check_login();
                         <a href="#community" class="navbar__links" id="community-page">Community</a>
                     </li> -->
                     <li class="navbar__btn">
-                        <!--<a href="loginPage.html" class="button" id="login">Login</a>  I was going to have a login page but decided to have a form instead-->  
 
                         <!-- Button to open the logout form -->
                         <a onclick="document.getElementById('logout').style.display='block'" class="button">Logout</a>
@@ -69,7 +68,7 @@ check_login();
                                 <hr>
 
                                 <div class="logout__container">   
-                                    <button type="submit" id="submit" name="logout" ><a href="logout.php">Yes</a></button>  <!-- added name="login" so I could have more than one post method-->
+                                    <button type="submit" class="submit" name="logout" ><a href="logout.php">Yes</a></button>  <!-- added name="login" so I could have more than one post method-->
                                     <hr>
                                 </div>
 
@@ -83,14 +82,14 @@ check_login();
         </nav> <!--End of navbar section-->
 
         <!--Create Section-->
-        <div class="create" id="create">
+        <div class="create">
             <div class="create__container">
-                <button class="create__btn"><a href="UserSimplePaintApp.php" id="link"><span>Create</span></a></button>
+                <button class="create__btn"><a href="UserSimplePaintApp.php"><span>Create</span></a></button>
             </div>
         </div>
 
         <!--About Section-->
-        <div class="about" id="about">
+        <div class="about">
             <h1>About</h1>
             <div class="about__container">
                 <div class="about__img--container">
@@ -106,7 +105,7 @@ check_login();
 
         <!--Community Section-->
 
-       <!-- <div class="community" id="community">
+       <!-- <div class="community">
             <h1>Community</h1>
             <form class="action" action="actionPage.php"> 
                 <input type="text" name="search" placeholder="Search.."> -->  <!--Search bar with search iron image-->

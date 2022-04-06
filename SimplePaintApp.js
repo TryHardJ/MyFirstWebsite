@@ -97,47 +97,10 @@ function download(){  // download canvas
 }
 
 
-/*function save_canvas(){
-
-  
-  const mysql=require('mysql');
-  const con = mysql.createPool({
-    host      :'localhost',
-    user      :'root',
-    password  :'',
-    database  : 'myfirstwebsite'
-  });
-
-  con.getConnection((err, connection) =>{ 
-    if(err) throw err; // if error = throw err, if else = continue 
-    console.log("Connected to database!");
-
-    console.log("Database is Connected!");
-
-    const image = canvas.toDataURL();// the context of the canvas at that moment
-
-    const content_name = document.getElementById('form').element["content_name"]; //access the form with id="form" and element content_name in UserSimplePaintApp.php
-  
-    let sql="Insert into content (content_name,content) VALUES ?";
-
-    let values=[
-      [content_name, image]
-    ]
-  
-
-    con.query(sql,[values],function(err, result){
-      if(err) throw err;
-    })
-
-  });
- 
-}*/
-
-
 /* all this java script below is for the nav bar */
 const menu = document.querySelector('#mobile-menu');
 const menuLinks = document.querySelector('.navbar__menu');
-const navLogo = document.querySelector('#navbar__logo');
+const navLogo = document.querySelector('.navbar__logo');
 
 // Display Mobile Menu
 const mobileMenu = () => {

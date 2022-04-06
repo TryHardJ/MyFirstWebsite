@@ -1,9 +1,9 @@
 *{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Disco revival' , sans-serif;
-    scroll-behavior: smooth;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Disco revival' , sans-serif;
+  scroll-behavior: smooth;
 }
 
 .highlight {
@@ -11,30 +11,30 @@
 }
 
 .navbar {
-    background: linear-gradient(to right, #131313 80%, #00008b 100%);
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    position: sticky;
-    top: 0;
-    z-index: 999;
+  background: linear-gradient(to right, #131313 80%, #00008b 100%);
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
 .navbar__container {
-    display: flex;
-    justify-content: space-between;
-    height: fit-content;
-    z-index: 1;
-    width: 100%;
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 50px;
+  display: flex;
+  justify-content: space-between;
+  height: fit-content;
+  z-index: 1;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 50px;
 }
 
 
-#navbar__logo{
+.navbar__logo{
     background-color:#00ffff;
     background-image: linear-gradient(to top, #00ffff 30%, #0000ff 100%);
     background-size: 100%;
@@ -95,11 +95,6 @@
     transition: all 0.3s ease;
 }
 
-/* old signup button
-#signup {
-  width: 125px;
-}  */
-
 .navbar__links:hover {
     color: #00ffff;
     transition: all 0.3s ease; /* Place this inside navbar_links too, this allows a clean transition when the mouse hovers over text */
@@ -150,7 +145,7 @@
     
     }
 
-    #navbar__logo {
+    .navbar__logo {
         padding-left: 25px;
     }
 
@@ -290,12 +285,6 @@
   .login__container input:focus {
     border: 1px solid rgba(81,203,238,1);
     caret-color: rgba(255, 255, 255, 0.705);
-    /*background: rgba(255, 255, 255, 0.3);
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;  Changes placeholder color on focus, was trying
-    to figure out how to change it back while typing, I'll come back to this*/
   }
 
   
@@ -354,7 +343,7 @@
   }
 
 
-  #submit:hover {
+  .submit:hover {
     cursor: pointer;
   }
 
@@ -428,45 +417,16 @@
 .signup__container input:focus {
   border: 1px solid rgba(81,203,238,1);
   caret-color: rgba(255, 255, 255, 0.705);
-  /*background: rgba(255, 255, 255, 0.3);
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;  Changes placeholder color on focus, was trying
-  to figure out how to change it back while typing, I'll come back to this*/
 }
 
 [required] {
   color: #ff0000;
 }
 
-/*$(document).ready(function () {  java for required
-  setTimeout(function () {
-      $("input").val("");
-  }, 3000);
-});
-*/
-
 .signup__container label {
   color:rgba(255, 255, 255, 0.705);
   font-size: 1rem;
 }
-
-/*
-.signup__container select {
-  margin-bottom: 1rem;
-  border-radius: 5px;
-  height: 1.8rem;
-  width: 32%;
-  border-color: rgba(255, 255, 255, 0.705);
-  background: #131313;
-  color:rgba(255, 255, 255, 0.705);
-}  
-
-.others { /*font color for select list attributes 
-  color:rgba(255, 255, 255, 0.705);
-} 
-  this was going to be a birthdate selection for Signup */
 
 .signup__container button{
   border-radius: 10px;
@@ -483,7 +443,6 @@
 .signup__container button:hover {
   opacity: 0.8;
 }
-
 
 
 /*media size for login content and sign up content*/
@@ -515,11 +474,6 @@
     width: 100%;
   }
 }
-
-
-
-
-
 
 
 /*Create Section*/
@@ -741,7 +695,6 @@
 }
 
 /*Community Section*/
-
 .community {
     background: #131313;
     display: flex;
@@ -785,7 +738,7 @@
 
 }
 
-#button [type=submit] {
+.button [type=submit] {
     cursor: pointer;
 }
 
@@ -923,19 +876,6 @@
     width: 100%;
   }
 }
-
-/*a:hover MUST come after a:link and a:visited in the CSS definition in order to be effective.*/
-/*a:active MUST come after a:hover in the CSS definition in order to be effective.*/
-/*.logout__container a:link {
-  text-decoration: none;
-  color:rgba(255, 255, 255, 0.705);
-  font-size: 1rem;
-  font-weight: normal;
-  display: flex;
-  justify-content: center;
-}*/
-
- 
 
 /*Error Section*/
 .error {

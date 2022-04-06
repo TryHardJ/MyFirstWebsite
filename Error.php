@@ -37,7 +37,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['login']))
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Paint application" />
         <title>Flow</title>
         <link rel="stylesheet" href="style.css" />
 
@@ -54,7 +54,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['login']))
         <!--Navbar Section-->
         <nav class="navbar">
             <div class="navbar__container">
-                <a href="HomePage.php" id="navbar__logo">FLOW</a>
+                <a href="HomePage.php" class="navbar__logo">FLOW</a>
                 <div class="navbar__toggle" id="mobile-menu">
                     <!--Hamburger-->
                     <span class="bar"></span>
@@ -73,7 +73,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['login']))
                         <a href="HomePage.php#community" class="navbar__links" id="community-page">Community</a>
                     </li> -->
                     <li class="navbar__btn">
-                        <!--<a href="loginPage.html" class="button" id="login">Login</a>  I was going to have a login page but decided to have a form instead-->  
 
                         <!-- Button to open the login form -->
                         <a onclick="document.getElementById('login').style.display='block'" class="button">Login</a>
@@ -84,9 +83,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['login']))
                             <form class="login__content animate" method="post">
                                 <h1>Login</h1>
                                 <div class="imgcontainer">
-                                    <!-- add avater if I want to
-                                    <img src="img_avatar2.png" alt="Avatar" class="avatar"> --> 
-
+                                   
                                     <!--X to close the form-->
                                     <span onclick="document.getElementById('login').style.display='none'" class="close" title="Close Login">&times;</span> 
                                 </div>
@@ -96,15 +93,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['login']))
                                     <input type="email" name="email" placeholder="Email" required>
                                     <input type="password" name="password" placeholder="Password" required>
 
-                                    <div class="login__remember"> <!--Had to make a div for remember me to get the check box and label on the same line-->
-                                       <!-- <input type="checkbox" value="lsRememberMe" id="rememberMe"><label for="rememberMe"> Remember Me </label> -->
-                                    </div>
-
-                                    <button type="submit" id="submit" name="login" >Login</button>  <!-- added name="login" so I could have more than one post method-->
+                                    <button type="submit" class="submit" name="login" >Login</button>  <!-- added name="login" so I could have more than one post method-->
                
                                     <hr>
-                                    <!-- If I wanted to add a cancel button <button type="button" onclick="document.getElementById('login').style.display='none'" class="cancelbtn">Cancel</button> -->
-                                    <!--<p><b><a href="default.asp" target="_blank">Forgot Password</a></b></p>-->
+      
                                 </div>
 
                             </form>
@@ -113,9 +105,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['login']))
                     </li>
 
                     <li class="navbar__btn">
-                        <!--<a href="signupPage.html" class="button" id="signup">Sign Up</a> just in case I want to do a sign in page-->
-                            
-
+            
                         <!-- Button to open the Sign up form -->
                         <a onclick="document.getElementById('signup').style.display='block'" class="button">Sign Up</a>
 
@@ -125,9 +115,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['login']))
                             <form class="signup__content animate"  method="post">
                                 <h1>Sign Up</h1>
                                 <div class="imgcontainer">
-                                    <!-- add avater if I want to
-                                    <img src="img_avatar2.png" alt="Avatar" class="avatar"> --> 
-                        
+                                   
                                     <!--X to close the form-->
                                     <span onclick="document.getElementById('signup').style.display='none'" class="close" title="Close Signup">&times;</span> 
                                 </div>
@@ -140,9 +128,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['login']))
                                     <input type="password" name="password" placeholder="Password"  required>
                                     <input type="password" name="password2" placeholder="Confirm Password" required>
                                     <p></p>
-                                    <button type="submit" id="submit" name="signup" >Sign Up</button> <!-- added name="signup" so I could have more than one post methods-->
+                                    <button type="submit" class="submit" name="signup" >Sign Up</button> <!-- added name="signup" so I could have more than one post methods-->
                            
-                                    <!-- come back to this <label><input type="checkbox" checked="checked" remember="rememBer">Remember me</label> -->
                                 </div>
                         
                             </form>
@@ -156,7 +143,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['login']))
         </nav> <!--End of navbar section-->
 
         <!--Error Section-->
-        <div class="error" id="error">
+        <div class="error">
             <h1>Error, Try Again!</h1>
 
             <h2><?php if(count($errors) > 0):?>    <!--if errors are greater than 0, then there are errors -->
