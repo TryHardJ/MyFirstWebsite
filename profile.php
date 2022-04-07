@@ -82,14 +82,14 @@ check_login();
         </nav> <!--End of navbar section-->
 
         <!--Create Section-->
-        <div class="create">
+        <div class="create" id= "create">
             <div class="create__container">
                 <button class="create__btn"><a href="UserSimplePaintApp.php"><span>Create</span></a></button>
             </div>
         </div>
 
         <!--About Section-->
-        <div class="about">
+        <div class="about" id="about">
             <h1>About</h1>
             <div class="about__container">
                 <div class="about__img--container">

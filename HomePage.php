@@ -159,7 +159,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['login']))
         </nav> <!--End of navbar section-->
 
         <!--Create Section-->
-        <div class="create">
+        <div class="create" id="create"> <!-- when I click on the href #create in the navbar selection, it takes me here because of Id = "create" Id selector is a #-->
             <div class="create__container">
                 
                 <button class="create__btn"><a onclick="document.getElementById('login').style.display='block'">Create</a></button>
@@ -167,7 +167,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['login']))
         </div>
 
         <!--About Section-->
-        <div class="about">
+        <div class="about" id="about">
             <h1>About</h1>
             <div class="about__container">
                 <div class="about__img--container">
