@@ -110,10 +110,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['login']))
                                 <div class="login__container">
                                     <input type="email" name="email" placeholder="Email" required>
                                     <input type="password" name="password" placeholder="Password" required>
-
                                     <button type="submit" class="submit" name="login" >Login</button>  <!-- added name="login" so I could have more than one post method-->
-               
-                                    <hr>
                                 </div>
 
                             </form>
