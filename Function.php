@@ -20,7 +20,7 @@ function signup($data)  // expecting data
     }
 
     if(strlen(trim($data['password'])) < 4){
-        $errors[] = "Password must be atleast 4 characters long";
+        $errors[] = "Password must be at least 4 characters long";
     }
 
     if($data['password'] != $data['password2']){
@@ -89,33 +89,6 @@ function login($data)
 
     return $errors;
 }
-
-
-
-/*function save($data) // save project
-{
-    $errors = array();
-
-   /* $check = database_run("select * from content where content_name = :content_name limit 1", ['content_name'=>$data['content_name']]);
-    if(is_array($check)){
-        $errors[] = "That project name already exists";
-    }
-
-    //save
-    if(count($errors) == 0){
-        $arr['content_name'] = $data['content_name'];
-        $arr['content'] = $data['content'];
-    
-        $query = "insert into content (content_name,content) values 
-        (:content_name,:content)";
-
-        database_run($query,$arr);
-    }*/
-
-  /*  return $errors;
-}*/
-
-
 
 function database_run($query,$vars = array()) {
     $string = "mysql:host=localhost;dbname=myfirstwebsite"; // database name
