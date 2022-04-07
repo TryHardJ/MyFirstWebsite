@@ -2,17 +2,17 @@ const canvas = document.getElementById("canvas"); /* taking canvas from html */
 canvas.width = window.innerWidth - 60; /* width of canvas */
 canvas.height = 400; /* height of canvas*/
 
+let index = -1; /* started out with -1 because 0 means there is already a path inside the array, -1 means I didn't draw anything yet */
+let restore_array = []; /*created array to store draw paths/ for undo function */
+
 let context = canvas.getContext("2d"); /* 2d dimension of context, everything that is on the canvas atm */
-let start_background_color = "white";  
+let start_background_color = "white";
 context.fillStyle = start_background_color;
 context.fillRect(0, 0, canvas.width, canvas.height); /* area that you can draw on the canvas */
 
 let draw_color = "black"; 
 let draw_width = "2"; /* pen default width */
 let is_drawing = false;  /* specifies if user is drawing or not */
-
-let restore_array = []; /*created array to store draw paths/ for undo function */
-let index = -1; /* started out with -1 because 0 means there is already a path inside the array, -1 means I didn't draw anything yet */
 
 function change_color(element) {
   draw_color = element.style.background; /*makes the onClick and onInput events from simplepaintapp.html work */
@@ -27,7 +27,6 @@ canvas.addEventListener("mousemove", draw, false);
 canvas.addEventListener("touchend", stop, false);
 canvas.addEventListener("mouseup", stop, false);
 canvas.addEventListener("mouseout", stop, false);
-
 
 
 function start (event) {  /*this event gets the mouse coordinates */
@@ -122,15 +121,11 @@ menu.addEventListener('click', mobileMenu); // Activates the mobileMenu arrow fu
   menuLinks.addEventListener('click', hideMobileMenu);
   navLogo.addEventListener('click', hideMobileMenu);
 
-  let login = document.getElementById('login');
-  let signup = document.getElementById('signup');
+  let logout = document.getElementById('logout');
 
   // When the user clicks anywhere outside of the login or signup, close it
   window.onclick = function(event) {
-      if (event.target == login) {
-          login.style.display = "none";
-      }
-      else if (event.target == signup) {
-        signup.style.display = "none";
-      }
+    if (event.target == logout){
+      logout.style.display = "none";
+    } 
   };
