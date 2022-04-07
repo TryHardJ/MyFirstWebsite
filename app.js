@@ -64,6 +64,7 @@ const highlightMenu = () => {
 
   let login = document.getElementById('login');
   let signup = document.getElementById('signup');
+  let logout = document.getElementById('logout');
 
   // When the user clicks anywhere outside of the login or signup, close it
   window.onclick = function(event) {
@@ -72,6 +73,9 @@ const highlightMenu = () => {
       }
       else if (event.target == signup) {
         signup.style.display = "none";
+      }
+      else if (event.target == logout) {
+        logout.style.display = "none";
       }
   };
 

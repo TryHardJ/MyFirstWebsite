@@ -527,7 +527,7 @@ opacity: 0.8;
 /* logout Content/Box */
 .logout__content { 
   background-color: #131313;
-  margin: 170px auto; /* 15% from the top and centered */
+  margin: 85px auto; /* 15% from the top and centered */
   border-radius: 25px;
   padding: 20px;
   width: 400px;
