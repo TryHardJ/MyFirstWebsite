@@ -97,7 +97,7 @@ function download(){  // download canvas
 
 
 /* all this java script below is for the nav bar */
-const menu = document.querySelector('#mobile-menu');
+const menu = document.querySelector('.mobile-menu');
 const menuLinks = document.querySelector('.navbar__menu');
 const navLogo = document.querySelector('.navbar__logo');
 

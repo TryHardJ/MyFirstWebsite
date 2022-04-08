@@ -73,7 +73,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['login']))
         <nav class="navbar">
             <div class="navbar__container">
                 <a href="#create" class="navbar__logo">FLOW</a>
-                <div class="navbar__toggle" id="mobile-menu">
+                <div class="navbar__toggle mobile-menu">
                     <!--Hamburger-->
                     <span class="bar"></span>
                     <span class="bar"></span>

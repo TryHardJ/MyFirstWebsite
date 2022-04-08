@@ -246,7 +246,7 @@ border-bottom: 4px solid #00ffff;
       cursor: pointer;
     }
 
-    #mobile-menu {
+    .mobile-menu {
       position: absolute;
       top: 20%;
       right: 5%;
@@ -260,15 +260,15 @@ border-bottom: 4px solid #00ffff;
 
     /*Needs Js to make these transitions work, I'm using Js to trigger these */
 
-    #mobile-menu.is-active .bar:nth-child(2) { /*targets middle hambuger line to make it disappear when you click on it*/
+    .mobile-menu.is-active .bar:nth-child(2) { /*targets middle hambuger line to make it disappear when you click on it*/
       opacity: 0;
     }
   
-    #mobile-menu.is-active .bar:nth-child(1) { /*targets first hambuger line to make it turn at a 45 degree angle when you click on it*/
+    .mobile-menu.is-active .bar:nth-child(1) { /*targets first hambuger line to make it turn at a 45 degree angle when you click on it*/
       transform: translateY(8px) rotate(45deg);
     }
   
-    #mobile-menu.is-active .bar:nth-child(3) { /*targets third hambuger line to make it turn at -45 degree angle when you click on it*/
+    .mobile-menu.is-active .bar:nth-child(3) { /*targets third hambuger line to make it turn at -45 degree angle when you click on it*/
       transform: translateY(-8px) rotate(-45deg);
     }
     /*******************************************************/
