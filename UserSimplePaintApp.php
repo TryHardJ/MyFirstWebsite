@@ -42,13 +42,13 @@ check_login();
 	                    <?php endif;?></p> 
                     </li>
                     <li class="navbar__item">
-                        <a href="UserSimplePaintApp.php" class="navbar__links" id="create-page">Create</a>
+                        <a href="UserSimplePaintApp.php" class="navbar__links create-page">Create</a>
                     </li>
                     <li class="navbar__item">
-                        <a href="profile.php#about" class="navbar__links" id="about-page">About</a>
+                        <a href="profile.php#about" class="navbar__links about-page">About</a>
                     </li>
                    <!-- <li class="navbar__item">
-                        <a href="profile.php#community" class="navbar__links" id="community-page">Community</a>
+                        <a href="profile.php#community" class="navbar__links community-page">Community</a>
                     </li> -->
                     <li class="navbar__btn">
                         

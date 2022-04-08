@@ -64,13 +64,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['login']))
                 </div>
                 <ul class="navbar__menu">
                     <li class="navbar__item">
-                        <a href="HomePage.php#create" class="navbar__links" id="create-page">Create</a>
+                        <a href="HomePage.php#create" class="navbar__links create-page">Create</a>
                     </li>
                     <li class="navbar__item">
-                        <a href="HomePage.php#about" class="navbar__links" id="about-page">About</a>
+                        <a href="HomePage.php#about" class="navbar__links about-page">About</a>
                     </li>
                    <!-- <li class="navbar__item">
-                        <a href="HomePage.php#community" class="navbar__links" id="community-page">Community</a>
+                        <a href="HomePage.php#community" class="navbar__links community-page">Community</a>
                     </li> -->
                     <li class="navbar__btn">
 

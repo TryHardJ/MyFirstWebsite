@@ -13,9 +13,9 @@ menu.addEventListener('click', mobileMenu); // Activates the mobileMenu arrow fu
 // Show active menu when scrolling (highlighting)
 const highlightMenu = () => {
     const elem = document.querySelector('.highlight');
-    const createMenu = document.querySelector('#create-page');
-    const aboutMenu = document.querySelector('#about-page');
-    //const communityMenu = document.querySelector('#community-page');
+    const createMenu = document.querySelector('.create-page');
+    const aboutMenu = document.querySelector('.about-page');
+    //const communityMenu = document.querySelector('.community-page');
     let scrollPos = window.scrollY;
     console.log(scrollPos); // logs the scrollPos(number) so you can see it when using command + shift + c
     //  how to get the scrollY postion (the number for scrollPos)

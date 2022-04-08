@@ -42,13 +42,13 @@ check_login();
 	                    <?php endif;?></p> 
                     </li>
                     <li class="navbar__item">
-                        <a href="#create" class="navbar__links" id="create-page">Create</a>
+                        <a href="#create" class="navbar__links create-page">Create</a>
                     </li>
                     <li class="navbar__item">
-                        <a href="#about" class="navbar__links" id="about-page">About</a>
+                        <a href="#about" class="navbar__links about-page">About</a>
                     </li>
                    <!-- <li class="navbar__item">
-                        <a href="#community" class="navbar__links" id="community-page">Community</a>
+                        <a href="#community" class="navbar__links community-page">Community</a>
                     </li> -->
                     <li class="navbar__btn">
 
@@ -105,7 +105,7 @@ check_login();
 
         <!--Community Section-->
 
-       <!-- <div class="community">
+       <!-- <div class="community" id="community">
             <h1>Community</h1>
             <form class="action" action="actionPage.php"> 
                 <input type="text" name="search" placeholder="Search.."> -->  <!--Search bar with search iron image-->
