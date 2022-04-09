@@ -58,7 +58,7 @@ function login($data)
 	}
 
     if(strlen(trim($data['password'])) < 4){
-		$errors[] = "Password must be atleast 4 chars long";
+		$errors[] = "Password must be at least 4 chars long";
 	}
 
     //check
