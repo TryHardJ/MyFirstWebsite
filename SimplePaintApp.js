@@ -3,7 +3,7 @@ canvas.width = window.innerWidth - 60; /* width of canvas */
 canvas.height = 400; /* height of canvas*/
 
 let index = -1; /* started out with -1 because 0 means there is already a path inside the array, -1 means I didn't draw anything yet */
-let restore_array = []; /*created array to store draw paths/ for undo function */
+let restore_array = [];
 
 let context = canvas.getContext("2d"); /* 2d dimension of context, everything that is on the canvas atm */
 let start_background_color = "white";
@@ -11,11 +11,11 @@ context.fillStyle = start_background_color;
 context.fillRect(0, 0, canvas.width, canvas.height); /* area that you can draw on the canvas */
 
 let draw_color = "black"; 
-let draw_width = "2"; /* pen default width */
-let is_drawing = false;  /* specifies if user is drawing or not */
+let draw_width = "2"; 
+let is_drawing = false;  
 
 function change_color(element) {
-  draw_color = element.style.background; /*makes the onClick and onInput events from simplepaintapp.html work */
+  draw_color = element.style.background;
 }
 
 
@@ -38,7 +38,7 @@ function start (event) {  /*this event gets the mouse coordinates */
 }
 
 function draw(event) {  
-  if (is_drawing) {    /* if drawing is equal to true */
+  if (is_drawing) {    
       context.lineTo(event.clientX - canvas.offsetLeft,
                      event.clientY - canvas.offsetTop); /*saying to draw a line to the coordinates where the mouse is moving*/
       context.strokeStyle = draw_color;
@@ -60,10 +60,8 @@ function stop(event) {
   /* if you stop the drawing, it will get added to the array/ for undo function */
 
   if (event.type != 'mouseout') { 
-    restore_array.push(context.getImageData(0, 0, canvas.width, canvas.height)); /* pushing the context of the image path/ basically capturing the image data */
-    index += 1; /* adding to the restore array/ each drawing */
-    /*console.log(restore_array); shows what happened when it adds each drawing to the restore array
-    command + shift + c when the live server is open to see*/
+    restore_array.push(context.getImageData(0, 0, canvas.width, canvas.height));
+    index += 1; 
   }
 }
 
@@ -72,22 +70,22 @@ function clear_canvas() {
   context.clearRect(0, 0, canvas.width, canvas.height);
   context.fillRect(0, 0, canvas.width, canvas.height);
 
-  restore_array = []; /*had to add both of these to reset the array and index of it */
+  restore_array = []; 
   index = -1;
 }
 
-function undo_last() { /*I saved every draw path for this to work */
+function undo_last() { 
   if (index <= 0) {
     clear_canvas();
   }
   else {
-    index -= 1; /*if there is something inside the array subtracted 1 from it */
-    restore_array.pop(); /*takes out the last element of the array */
-    context.putImageData(restore_array[index], 0, 0); /*restore the image to what it was before*/
+    index -= 1; 
+    restore_array.pop();
+    context.putImageData(restore_array[index], 0, 0);
   }
 }
 
-function download(){  // download canvas
+function download(){  
   const image = canvas.toDataURL();  // access the context of the canvas, get the image from canvas
   const link = document.createElement('a'); // a element is a link
   link.href = image; // image in link

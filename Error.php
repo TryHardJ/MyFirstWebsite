@@ -74,7 +74,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['login']))
                     </li> -->
                     <li class="navbar__btn">
 
-                        <!-- Button to open the login form -->
+                       
                         <a onclick="document.getElementById('login').style.display='block'" class="button">Login</a>
 
                         <!-- The login form -->
@@ -106,7 +106,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['login']))
 
                     <li class="navbar__btn">
             
-                        <!-- Button to open the Sign up form -->
+                        
                         <a onclick="document.getElementById('signup').style.display='block'" class="button">Sign Up</a>
 
                         <!-- The Sign up form -->
@@ -146,9 +146,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['login']))
         <div class="error">
             <h1>Error, Try Again!</h1>
 
-            <h2><?php if(count($errors) > 0):?>    <!--if errors are greater than 0, then there are errors -->
+            <h2><?php if(count($errors) > 0):?>    
 		            <?php foreach ($errors as $error):?>  
-			            <?= $error?> <br> <!-- ?= is as good as saying php echo , br makes sure each error is on a seperate line-->                                    
+			            <?= $error?> <br> 
 			    <?php endforeach;?>
 		    <?php endif;?><h2>
         </div>

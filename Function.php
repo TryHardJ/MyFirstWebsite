@@ -2,7 +2,7 @@
 
 session_start();
 
-function signup($data)  // expecting data
+function signup($data) 
 {
     $errors = array();
 
